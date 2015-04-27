@@ -33,7 +33,7 @@
 - name: collectd_common | write config for write_graphite plugin
   template: 
      src=write_graphite.conf.j2 
-     dest="{{collectd_etc_plugins}}/write_graphite.conf "
+     dest="{{collectd_etc_plugins}}/write_graphite.conf"
      validate='collectd -t -C %s' 
      owner=root
      group=root 
