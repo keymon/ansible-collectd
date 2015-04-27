@@ -3,8 +3,11 @@
 - include: "collectd_redhat.yml"
   when: ansible_os_family == "RedHat" 
 
-- include: "collectd_debian_{{collectd_install}}.yml"
-  when: ansible_os_family == "Debian"
+- include: "collectd_debian_binary.yml"
+  when: ansible_os_family == "Debian" and collectd_install == "binary"
+
+- include: "collectd_debian_source.yml"
+  when: ansible_os_family == "Debian" and collectd_install == "source"
 
 - include: "collectd_common.yml"
 
